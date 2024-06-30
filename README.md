@@ -15,7 +15,7 @@
 5. Przejdź do katalogu projektu:
  
     ```bash
-    cd system-rozpoznawania-mowy
+    cd SpeechRecognition
     ```
 
 ### Krok 2: Instalacja zależności
