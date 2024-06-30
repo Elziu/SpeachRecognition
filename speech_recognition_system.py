@@ -79,21 +79,6 @@ def save_transcription(audio_filename, text):
     print(f"Transkrypcja zapisana jako {transcription_filename}")
     sys.stdout.flush()
 
-# Funkcja do odtwarzania nagrania
-def play_audio(filename):
-    try:
-        with wave.open(filename, 'rb') as wf:
-            print("Odtwarzanie nagrania...")
-            sys.stdout.flush()
-            data = wf.readframes(wf.getnframes())
-            sd.play(data, wf.getframerate())
-            sd.wait()
-            print("Odtwarzanie zakonczone.")
-            sys.stdout.flush()
-    except Exception as e:
-        print(f"Blad podczas odtwarzania: {e}")
-        sys.stdout.flush()
-
 # Glowna funkcja
 def main():
     if not os.path.exists('nagrania'):
@@ -103,7 +88,6 @@ def main():
     filename = f"nagrania/nagranie_{now.strftime('%Y%m%d_%H%M%S')}.wav"
     
     record_audio(filename)
-    play_audio(filename)
     recognize_speech_from_file(filename)
 
 if __name__ == "__main__":
